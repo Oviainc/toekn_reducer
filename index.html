@@ -17,6 +17,15 @@
         button {
             margin-top: 10px;
         }
+        .output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -25,25 +34,28 @@
     <textarea id="inputText" placeholder="Enter your text here..."></textarea>
     <button onclick="separateText()">Separate Text</button>
 
+    <div id="outputContainer"></div> <!-- Container to hold output chunks -->
+
     <script>
         function separateText() {
             const input = document.getElementById('inputText').value;
             const chunkSize = 3995; // Size of each chunk
-            const chunks = [];
+            const outputContainer = document.getElementById('outputContainer');
+            outputContainer.innerHTML = ''; // Clear previous output
 
+            // Iterate through characters in the input text
             for (let i = 0; i < input.length; i += chunkSize) {
                 // Extract chunk of 3995 characters
                 const chunk = input.substring(i, i + chunkSize);
-                chunks.push(chunk);
+                
+                // Create a new div for this chunk
+                const chunkDiv = document.createElement('div');
+                chunkDiv.className = 'output';
+                chunkDiv.innerHTML = `<h2>Extract ${Math.floor(i / chunkSize) + 1} (Characters ${i + 1} to ${Math.min(i + chunkSize, input.length)})</h2><pre>${chunk}</pre>`;
+                
+                // Append the chunk to the output container
+                outputContainer.appendChild(chunkDiv);
             }
-
-            // Open new windows for each chunk
-            chunks.forEach((chunk, index) => {
-                const newWindow = window.open('', `_blank`);
-                newWindow.document.write(`<h2>${index + 1} Extract</h2>`);
-                newWindow.document.write(`<pre>${chunk}</pre>`);
-                newWindow.document.close();
-            });
         }
     </script>
 
