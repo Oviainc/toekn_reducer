@@ -45,3 +45,4 @@ Efficiency: Reduces processing time and memory usage by handling smaller text si
 Improved Model Performance: By removing noise and irrelevant information, the quality of data fed into models can be enhanced.
 Customization: The function can be tailored to fit specific requirements or datasets, making it versatile across different applications.
 
+https://oviainc.github.io/token_reducer/
