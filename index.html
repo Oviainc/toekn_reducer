@@ -8,23 +8,35 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            max-width: 600px;
+            max-width: 800px;
         }
         textarea {
             width: 100%;
             height: 200px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
         }
         button {
             margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
         }
         .output {
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 10px;
             margin-bottom: 10px;
+            background-color: #f9f9f9;
         }
         h2 {
             margin: 0;
+        }
+        pre {
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
+            word-wrap: break-word; /* Break long words onto the next line */
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -38,23 +50,29 @@
 
     <script>
         function separateText() {
-            const input = document.getElementById('inputText').value;
-            const chunkSize = 3995; // Size of each chunk
+            const inputText = document.getElementById('inputText').value;
+            const chunkSize = 3995; // Define chunk size
             const outputContainer = document.getElementById('outputContainer');
-            outputContainer.innerHTML = ''; // Clear previous output
 
-            // Iterate through characters in the input text
-            for (let i = 0; i < input.length; i += chunkSize) {
-                // Extract chunk of 3995 characters
-                const chunk = input.substring(i, i + chunkSize);
+            // Clear previous output
+            outputContainer.innerHTML = '';
+
+            // Calculate number of chunks
+            const numChunks = Math.ceil(inputText.length / chunkSize);
+
+            // Iterate through the text and create chunks
+            for (let i = 0; i < numChunks; i++) {
+                const start = i * chunkSize;
+                const end = start + chunkSize;
+                const chunk = inputText.slice(start, end); // Get the chunk of text
+
+                // Create a new output element
+                const outputElement = document.createElement('div');
+                outputElement.className = 'output';
+                outputElement.innerHTML = `<h2>Extract ${i + 1} (Characters ${start + 1} to ${Math.min(end, inputText.length)})</h2><pre>${chunk}</pre>`;
                 
-                // Create a new div for this chunk
-                const chunkDiv = document.createElement('div');
-                chunkDiv.className = 'output';
-                chunkDiv.innerHTML = `<h2>Extract ${Math.floor(i / chunkSize) + 1} (Characters ${i + 1} to ${Math.min(i + chunkSize, input.length)})</h2><pre>${chunk}</pre>`;
-                
-                // Append the chunk to the output container
-                outputContainer.appendChild(chunkDiv);
+                // Append the new output element to the output container
+                outputContainer.appendChild(outputElement);
             }
         }
     </script>
