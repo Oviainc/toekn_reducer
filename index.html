@@ -63,6 +63,7 @@
     <script>
         function separateText() {
             const inputText = document.getElementById('inputText').value;
+            const cleanedText = inputText.replace(/\s+/g, ''); // Remove all whitespace
             const chunkSize = 3995; // Define chunk size
             const outputContainer = document.getElementById('outputContainer');
 
@@ -70,19 +71,19 @@
             outputContainer.innerHTML = '';
 
             // Calculate number of chunks
-            const numChunks = Math.ceil(inputText.length / chunkSize);
+            const numChunks = Math.ceil(cleanedText.length / chunkSize);
 
             // Iterate through the text and create chunks
             for (let i = 0; i < numChunks; i++) {
                 const start = i * chunkSize;
                 const end = start + chunkSize;
-                const chunk = inputText.slice(start, end); // Get the chunk of text
+                const chunk = cleanedText.slice(start, end); // Get the chunk of text
 
                 // Create a new output element
                 const outputElement = document.createElement('div');
                 outputElement.className = 'output';
                 outputElement.innerHTML = `
-                    <h2>Extract ${i + 1} (Characters ${start + 1} to ${Math.min(end, inputText.length)})</h2>
+                    <h2>Extract ${i + 1} (Characters ${start + 1} to ${Math.min(end, cleanedText.length)})</h2>
                     <pre>${chunk}</pre>
                     <button class="copy-button" onclick="copyToClipboard('${chunk.replace(/'/g, "\\'")}')">Copy</button>
                 `;
