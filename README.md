@@ -17,50 +17,24 @@ To get started with the Token Reducer, clone this repository and install the req
 git clone https://github.com/yourusername/token_reducer.git
 cd token_reducer
 pip install -r requirements.txt
-🔧 How to Use the Token Reducer
+🔧 How to Use
 Basic Usage
 Here's a simple example of how to use the Token Reducer in your project:
 
 python
 Copy code
-def token_reducer(file_path):
-    with open(file_path, 'r') as file:
-        text = file.read()
-
-    # Tokenization
-    tokens = text.split()
-
-    # Apply reduction techniques
-    stop_words = set(['and', 'the', 'is', 'in', 'to', 'of'])  # Define stop words
-    reduced_tokens = [token for token in tokens if token not in stop_words]
-    reduced_text = ' '.join(reduced_tokens)
-
-    return reduced_text
+from token_reducer import token_reducer
 
 # Example usage
 result = token_reducer('path/to/your/file.txt')
 print(result)
-Integrating into Your Project
-Import the Utility: If you're integrating the Token Reducer into a larger project, you can import the utility function directly:
-
-python
-Copy code
-from token_reducer import token_reducer
-Preprocessing Data: Use the token_reducer function to clean and preprocess your text data before feeding it into your models or analysis pipelines.
-
-python
-Copy code
-# Preprocess data
-cleaned_data = token_reducer('path/to/your/input_file.txt')
-Customize for Your Needs: Modify the list of stop words or add additional text processing techniques to suit the specific requirements of your project.
+🌐 Try it Online
+You can also try the Token Reducer online at Token Reducer Web App.
 
 🎉 Benefits
 Efficiency: Reduces processing time and memory usage by handling smaller text sizes.
 Improved Model Performance: Enhances the quality of data fed into models by removing noise and irrelevant information.
 Customization: Tailor the function to fit specific requirements or datasets.
-🌐 Try It Online!
-You can also try the Token Reducer directly on our website: Token Reducer
-
 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
@@ -75,16 +49,8 @@ Thank you for using the Token Reducer! 🌟
 markdown
 Copy code
 
-### Explanation of Sections
+### Instructions:
+- Replace `yourusername` with your actual GitHub username in the installation instructions.
+- Update the email address in the contact section to your own before pasting it into your GitHub repository. 
 
-1. **Overview**: A brief introduction to what the Token Reducer does.
-2. **Features**: Highlights key functionalities.
-3. **Installation**: Step-by-step instructions on how to install the Token Reducer.
-4. **How to Use**: 
-   - **Basic Usage**: A simple code example demonstrating how to use the utility.
-   - **Integrating into Your Project**: Instructions on importing and using the utility in different contexts.
-5. **Benefits**: Lists advantages of using the Token Reducer.
-6. **Try It Online**: A link to the live demo.
-7. **License**: Information about the project's licensing.
-8. **Contributing**: Encouragement for others to contribute to the project.
-9. **Contact**: Provides a way to reach out for questions or support.
+You can simply copy the entire block above and paste it into your `README.md` file!
