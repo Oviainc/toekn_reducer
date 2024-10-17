@@ -10,8 +10,11 @@ The **Token Reducer** is a Python utility designed to efficiently reduce the num
 - **N-gram Analysis**: Analyzes the frequency of word combinations for effective reduction.
 
 🌐 Try it Online
-You can also try the Token Reducer online at Token Reducer Web App (opens in a new tab).
+You can also try the Token Reducer online at <a href="https://oviainc.github.io/token_reducer/" target="_blank">Token Reducer Web App</a>..
+
 https://oviainc.github.io/token_reducer/
+
+
 ## 🛠️ Installation
 
 To get started with the Token Reducer, clone this repository and install the required packages.
