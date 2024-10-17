@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Chunk Separator</title>
+    <title>Character Chunk Separator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,43 +17,33 @@
         button {
             margin-top: 10px;
         }
-        .output {
-            margin-top: 20px;
-            white-space: pre-wrap;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
     </style>
 </head>
 <body>
 
-    <h1>Text Chunk Separator</h1>
+    <h1>Character Chunk Separator</h1>
     <textarea id="inputText" placeholder="Enter your text here..."></textarea>
     <button onclick="separateText()">Separate Text</button>
-
-    <h2>Output:</h2>
-    <div class="output" id="outputText"></div>
 
     <script>
         function separateText() {
             const input = document.getElementById('inputText').value;
-            const words = input.split(/\s+/); // Split by whitespace
+            const chunkSize = 3995; // Size of each chunk
             const chunks = [];
-            let currentChunk = [];
 
-            for (let i = 0; i < words.length; i++) {
-                currentChunk.push(words[i]);
-
-                // If we reach 3995 words or the last word, push the chunk
-                if (currentChunk.length === 3995 || i === words.length - 1) {
-                    chunks.push(currentChunk.join(' '));
-                    currentChunk = []; // Reset current chunk
-                }
+            for (let i = 0; i < input.length; i += chunkSize) {
+                // Extract chunk of 3995 characters
+                const chunk = input.substring(i, i + chunkSize);
+                chunks.push(chunk);
             }
 
-            // Display the output
-            document.getElementById('outputText').innerText = chunks.join('\n\n');
+            // Open new windows for each chunk
+            chunks.forEach((chunk, index) => {
+                const newWindow = window.open('', `_blank`);
+                newWindow.document.write(`<h2>${index + 1} Extract</h2>`);
+                newWindow.document.write(`<pre>${chunk}</pre>`);
+                newWindow.document.close();
+            });
         }
     </script>
 
