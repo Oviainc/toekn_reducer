@@ -38,6 +38,18 @@
             word-wrap: break-word; /* Break long words onto the next line */
             margin: 10px 0;
         }
+        .copy-button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #007BFF; /* Blue */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -69,11 +81,26 @@
                 // Create a new output element
                 const outputElement = document.createElement('div');
                 outputElement.className = 'output';
-                outputElement.innerHTML = `<h2>Extract ${i + 1} (Characters ${start + 1} to ${Math.min(end, inputText.length)})</h2><pre>${chunk}</pre>`;
+                outputElement.innerHTML = `
+                    <h2>Extract ${i + 1} (Characters ${start + 1} to ${Math.min(end, inputText.length)})</h2>
+                    <pre>${chunk}</pre>
+                    <button class="copy-button" onclick="copyToClipboard('${chunk.replace(/'/g, "\\'")}')">Copy</button>
+                `;
                 
                 // Append the new output element to the output container
                 outputContainer.appendChild(outputElement);
             }
+        }
+
+        function copyToClipboard(text) {
+            // Create a temporary textarea to hold the text
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert("Copied to clipboard!");
         }
     </script>
 
