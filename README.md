@@ -12,8 +12,6 @@ The **Token Reducer** is a Python utility designed to efficiently reduce the num
 🌐 Try it Online
 You can also try the Token Reducer online at <a href="https://oviainc.github.io/token_reducer/" target="_blank">Token Reducer Web App</a>..
 
-https://oviainc.github.io/token_reducer/
-
 
 ## 🛠️ Installation
 
@@ -60,3 +58,5 @@ Copy code
 - Update the email address in the contact section to your own before pasting it into your GitHub repository. 
 
 You can simply copy the entire block above and paste it into your `README.md` file!
+
+https://oviainc.github.io/token_reducer/
