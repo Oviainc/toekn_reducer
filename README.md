@@ -9,6 +9,8 @@ The **Token Reducer** is a Python utility designed to efficiently reduce the num
 - **Synonym Replacement**: Replaces words with their synonyms to shorten text without losing meaning.
 - **N-gram Analysis**: Analyzes the frequency of word combinations for effective reduction.
 
+## https://oviainc.github.io/token_reducer/
+
 ## 🛠️ Installation
 
 To get started with the Token Reducer, clone this repository and install the required packages.
