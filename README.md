@@ -42,7 +42,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 Contributions are welcome! Please read the CONTRIBUTING.md for details on how to contribute to this project.
 
 📫 Contact
-For any inquiries, please reach out at: your.email@example.com
+For any inquiries, please reach out at: jason.inc@cyberservices.com
 
 Thank you for using the Token Reducer! 🌟
 
